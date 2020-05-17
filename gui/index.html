@@ -12,10 +12,36 @@
     <script src="./js/semantic.min.js"></script>
   </head>
   <body>
-    <div id="landing-header">
-    <h1>Select a date to predict generation!</h1>
-    <a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+    
+<div id="landing-segment">
+    <div class="ui two column centered grid">
+      <div id="landing-header" class="column">
+        <div class="ui icon header">
+          <i class="chart line icon"></i>
+          <h1>Predict Generation</h1>
+        </div>
+      </div>
+      <div class="one column centered row">
+        <div class="column">
+          <div class="ui centered grid">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="gender">
+              <i class="dropdown icon"></i>
+              <div class="default text">Plant</div>
+              <div class="menu">
+                <div class="item" data-value="solar">Solar</div>
+                <div class="item" data-value="wind">Wind</div>
+              </div>
+            </div>
+            <button class="ui primary button">Predict!</button>
+          </div>
+        </div>
+      </div>
     </div>
+</div>
+
+    
+    
     
     <ul class="slideshow">
       <li></li>
@@ -26,6 +52,8 @@
     </ul>
 
     <!-- You can also require other files to run in this process -->
+    
+    <script src="./js/index.js"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>

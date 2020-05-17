@@ -2,16 +2,18 @@ body {
   background-color: #000;
 }
 
-#landing-header {
+#landing-segment {
   z-index: 1;
   position: relative;
-  text-align: center;
   padding-top: 40vh;
 }
 
-#landing-header h1 {
-  color: #f9dc5c;
+#landing-header {
+  font-size: 2em;
+  text-align: center;
 }
+
+
 
 .slideshow { 
   position: fixed;
