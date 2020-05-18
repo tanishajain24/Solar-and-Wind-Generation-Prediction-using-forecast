@@ -19,5 +19,8 @@
   "devDependencies": {
     "electron": "^8.2.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "python-shell": "^2.0.0"
+  }
 }

@@ -78,6 +78,7 @@ weather_by_day['T (C)'] = weather_by_day['T'] - 273.15
 # merge production_wind_solar and weather_by_day DataFrames
 combined = pd.merge(production, weather_by_day, how='left', left_index=True, right_index=True)
 
+#combined.to_csv(r'required_weather.csv')
 # drop redundant 'T (C)' column
 combined = combined.drop('T (C)', axis=1)
 
@@ -92,8 +93,8 @@ X_wind = combined[['v1', 'v2', 'v_50m']]
 y_wind = combined['DE_wind_generation_actual']
 X_train, X_test, y_train, y_test = train_test_split(X_wind, y_wind, test_size=0.2, random_state=0)
 
-X_test.to_csv(r'wind_test_X.csv')
-y_test.to_csv(r'wind_test_Y.csv')
+#X_test.to_csv(r'wind_test_X.csv')
+#y_test.to_csv(r'wind_test_Y.csv')
 # In[49]:
 
 regressor = LinearRegression()  
@@ -111,11 +112,11 @@ print(scores_wind, "\naverage =", np.mean(scores_wind))
 
 # In[47]:
 
-X_solar = combined[['SWTDN', 'SWGDN']]
+X_solar = combined[['SWGDN', 'T']]
 y_solar = combined['DE_solar_generation_actual']
 X_train, X_test, y_train, y_test = train_test_split(X_solar, y_solar, test_size=0.2, random_state=0)
-X_test.to_csv(r'solar_test_X.csv')
-y_test.to_csv(r'solar_test_Y.csv')
+#X_test.to_csv(r'solar_test_X.csv')
+#y_test.to_csv(r'solar_test_Y.csv')
  
 regressor.fit(X_train, y_train)
 
