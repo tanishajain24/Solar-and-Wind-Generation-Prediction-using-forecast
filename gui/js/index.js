@@ -9,6 +9,7 @@ $('.ui.selection.dropdown')
   .dropdown()
 ;
 
+$('.ui.dropdown').dropdown("set selected", ["wind"]);
 
 
 getGeneration = () => {
@@ -21,14 +22,20 @@ getGeneration = () => {
 
 	predictor = new PythonShell('prediction.py', options)
 
+
+	$('#data-table').transition('horizontal flip');
 	predictor.on('message', function(message) {
 		console.log(message)
+		
 	})
 
-
-	console.log(plant)
 }
+
+
+$('#data-table').transition('hide')
+
 
 $("#predict").on("click", function(){
   getGeneration();
+  $('#landing-segment').transition('fly right');
 });

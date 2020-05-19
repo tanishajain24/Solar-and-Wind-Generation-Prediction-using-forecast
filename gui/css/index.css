@@ -2,7 +2,7 @@ body {
   background-color: #000;
 }
 
-#landing-segment {
+#landing-segment, #data-segment {
   z-index: 1;
   position: relative;
   padding-top: 40vh;
