@@ -35,29 +35,34 @@ def powLaw(Ur, Z):
 	return Ur*(pow((Z/Zr), alpha))
 
 
-if(plant == 'wind'):
-	filename = 'wind_model.sav'
-else:
-	filename = 'solar_model.sav'
-
-
-loaded_model = joblib.load(filename)
-
 url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={config.API_KEY}"
-
 
 data = requests.request("GET", url)
 response = data.json()
 
-for weather in response["list"]:
-	U10 = weather['wind']['speed']
-	U2 = powLaw(U10, 2)
-	U50 = powLaw(U10, 50)
-	gen = loaded_model.predict([[U2, U10, U50]])
-	if gen < 0:
-		gen = 0
-	print(weather['dt_txt'], ' ', gen)
-	sys.stdout.flush()
+
+if(plant == 'wind'):
+	filename = 'wind_model.sav'
+	loaded_model = joblib.load(filename)
+	for weather in response["list"]:
+		U10 = weather['wind']['speed']
+		U2 = powLaw(U10, 2)
+		U50 = powLaw(U10, 50)
+		gen = loaded_model.predict([[U2, U10, U50]])[0]
+		if gen < 0:
+			gen = 0
+		print(weather['dt_txt'], ' ', gen)
+		sys.stdout.flush()
+else:
+	filename = 'solar_model.sav'
+	loaded_model = joblib.load(filename)
+	for weather in response["list"]:
+		#T =
+		pass 
+
+
+
+
 
 
 

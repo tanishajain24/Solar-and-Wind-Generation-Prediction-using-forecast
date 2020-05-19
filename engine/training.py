@@ -21,7 +21,7 @@ from sklearn.model_selection import cross_val_score
 
 # In[6]:
 
-production = pd.read_csv("time_series_60min_singleindex.csv",
+production = pd.read_csv("datasets/time_series_60min_singleindex.csv",
                         usecols=(lambda s: s.startswith('utc') | s.startswith('DE')),
                         parse_dates=[0], index_col=0)
 
@@ -61,7 +61,7 @@ df = df[~((df < (Q1-1.5 * IQR)) |(df > (Q3 + 1.5 * IQR))).any(axis=1)]
 
 # In[19]:
 
-weather = pd.read_csv("weather_data_GER_2016.csv",
+weather = pd.read_csv("datasets/weather_data_GER_2016.csv",
                      parse_dates=[0], index_col=0)
 
 
@@ -78,7 +78,9 @@ weather_by_day['T (C)'] = weather_by_day['T'] - 273.15
 # merge production_wind_solar and weather_by_day DataFrames
 combined = pd.merge(production, weather_by_day, how='left', left_index=True, right_index=True)
 
-#combined.to_csv(r'required_weather.csv')
+weather_by_day = weather_by_day.drop(['h1', 'h2', 'z0', 'lat', 'lon', 'rho', 'p'], axis=1)
+
+weather_by_day.to_csv(r'required_weather.csv')
 # drop redundant 'T (C)' column
 combined = combined.drop('T (C)', axis=1)
 
