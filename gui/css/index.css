@@ -5,7 +5,7 @@ body {
 #landing-segment, #data-segment {
   z-index: 1;
   position: relative;
-  padding-top: 40vh;
+  padding-top: 20vh;
 }
 
 #landing-header {

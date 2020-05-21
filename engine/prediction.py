@@ -40,7 +40,6 @@ url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={config.A
 data = requests.request("GET", url)
 response = data.json()
 
-
 if(plant == 'wind'):
 	filename = 'wind_model.sav'
 	loaded_model = joblib.load(filename)
@@ -51,7 +50,7 @@ if(plant == 'wind'):
 		gen = loaded_model.predict([[U2, U10, U50]])[0]
 		if gen < 0:
 			gen = 0
-		print(weather['dt_txt'], ' ', gen)
+		print(gen)
 		sys.stdout.flush()
 else:
 	filename = 'solar_model.sav'
