@@ -40,6 +40,7 @@ def mean_hist_values(date_time_obj):
 									& (weather_hist.index.day == date_time_obj.day), ['rad_direct', 'rad_diffuse']]
 
 	total_rad = weather_data['rad_direct'] + weather_data['rad_diffuse']
+	
 	return sum(total_rad)/len(total_rad)
 	#for weather in weather_data
 
@@ -55,7 +56,6 @@ url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={config.A
 
 data = requests.request("GET", url)
 response = data.json()
-gens = []
 today = datetime.now().day;
 
 if(plant == 'wind'):

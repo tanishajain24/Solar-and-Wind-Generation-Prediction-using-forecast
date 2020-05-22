@@ -1,15 +1,12 @@
 let {PythonShell} = require('python-shell')
 const path = require('path')
 
-const options = {
-		scriptPath: path.join(__dirname, '/../engine/')
-	}
 
 $('.ui.selection.dropdown')
   .dropdown()
 ;
 
-$('#plant').dropdown("set selected", ["wind"]);
+$('#plant').dropdown("set selected", ["solar"]);
 $('#city').dropdown("set selected", ["Berlin"]);
 
 
@@ -34,7 +31,6 @@ getGeneration = () => {
 	predictor.on('message', function(message) {
 		// gens = message.split(" ");
 		gens.push(message)
-		console.log(message)
 		fillTable(gens)
 		
 	})
