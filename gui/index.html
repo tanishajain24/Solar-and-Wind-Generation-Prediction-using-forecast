@@ -33,6 +33,24 @@
                 <div class="item" data-value="wind">Wind</div>
               </div>
             </div>
+            <div id="city" class="ui selection dropdown">
+              <input type="hidden" name="City">
+              <i class="dropdown icon"></i>
+              <div class="default text">City</div>
+              <div class="menu">
+                <div class="item" data-value="Berlin">Berlin</div>
+                <div class="item" data-value="Hamburg">Hamburg</div>
+                <div class="item" data-value="Munich">Munich</div>
+                <div class="item" data-value="Cologne">Cologne</div>
+                <div class="item" data-value="Stuttgart">Stuttgart</div>
+                <div class="item" data-value="Dortmund">Dortmund</div>
+                <div class="item" data-value="Bremen">Bremen</div>
+                <div class="item" data-value="Chemnitz">Chemnitz</div>
+                <div class="item" data-value="Dresden">Dresden</div>
+                <div class="item" data-value="Kiel">Kiel</div>
+
+              </div>
+            </div>
             <button id="predict" class="ui primary button">Predict!</button>
           </div>
         </div>
@@ -42,6 +60,7 @@
 
 <div id="data-segment">
   <div id="data-table" class="ui raised segment">
+    <button id="back" class="ui primary button">Back</button>
     <table id="gen-table" class="ui celled table">
       <thead>
         <tr><th>Time</th>

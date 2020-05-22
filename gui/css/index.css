@@ -2,10 +2,16 @@ body {
   background-color: #000;
 }
 
-#landing-segment, #data-segment {
+#landing-segment {
   z-index: 1;
   position: relative;
   padding-top: 20vh;
+}
+
+#data-segment {
+  z-index: 2;
+  position: relative;
+  margin-top: 15vh;
 }
 
 #landing-header {
